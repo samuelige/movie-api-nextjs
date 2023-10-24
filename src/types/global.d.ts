@@ -3,3 +3,5 @@ declare module "*.svg?url" {
     const SVG: any;
     export default SVG;
 }
+
+declare module "*.png?url"
