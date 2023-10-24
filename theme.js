@@ -21,8 +21,13 @@ module.exports = {
         midGray: "#353F4C",
         lightGray: "#7A8C99",
         white: "#FFF",
+        grayOvelay: "rgba(27,35,41,0.85)"
+        // grayOvelay: "rgba(53,63,76,0.70)"
+        // grayOvelay: "rgba(255, 255, 255, 0.45)"
     },
-    backgroundImage: {},
+    backgroundImage: {
+        // grayOvelay: "rgba(255, 255, 255, 0.45)"
+    },
     borderColor: {},
     
 }
