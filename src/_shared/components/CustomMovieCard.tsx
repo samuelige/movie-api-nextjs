@@ -2,6 +2,7 @@ import Image from 'next/image'
 import React, { FC, useState } from 'react'
 import like_icon from "@/_shared/assets/images/1.Icons/icon-heart-grey.svg?url"
 import liked_icon from "@/_shared/assets/images/1.Icons/icon-heart-full.svg?url"
+import lazyLoader from "@/_shared/assets/images/2.Illustrations/lazy_loader.gif?url"
 
 interface CustomMovieCardProps {
     imageSrc: string;
@@ -18,7 +19,7 @@ const CustomMovieCard:FC<CustomMovieCardProps> = ({imageSrc, title, year}) => {
 
   return (
     <div className="group relative w-full  h-[21rem] overflow-hidden rounded-lg shadow-lg cursor-pointer">
-        <Image src={imageSrc === "N/A" ? "" : imageSrc || ""} width={256} height={384} alt="custom-movie-image" className='w-full object-fill' />
+        <Image src={imageSrc === "N/A" ? lazyLoader : imageSrc || lazyLoader} width={256} height={384} alt="custom-movie-image" className='w-full object-fill' />
         <button
           className={`absolute z-50 top-3 right-3 text-gray-200 transition-all transform scale-125 ${!liked && "opacity-0"} group-hover:opacity-100`}
           onClick={toggleLike}

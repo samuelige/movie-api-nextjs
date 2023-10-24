@@ -5,3 +5,4 @@ declare module "*.svg?url" {
 }
 
 declare module "*.png?url"
+declare module "*.gif?url"
