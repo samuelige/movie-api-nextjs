@@ -10,6 +10,6 @@
 
 @layer base {
   body {
-    @apply roboto !important;
+    @apply roboto font-normal text-base !important;
   }
 }
