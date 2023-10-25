@@ -7,12 +7,15 @@ interface CustomBtnProps {
     brdColor?: string;
     content: string;
     size: number;
-    isNested: boolean;
+    isNested?: boolean;
+    isActive?: boolean;
+    activeColor?: string;
+    handleClick?: ()=>void;
 }
 
-const CustomBtn:FC<CustomBtnProps> = ({image, isNested, bgColor,brdColor, content, size}) => {
+const CustomBtn:FC<CustomBtnProps> = ({image, isNested, isActive, bgColor, brdColor, content, size,activeColor, handleClick}) => {
   return (
-    <button className={`bg-transparent flex flex-row items-center text-white font-medium rounded-md text-xl ${isNested && "cursor-not-allowed"}`}>
+    <button onClick={handleClick} className={` text-lightGray ${isActive ? activeColor : "bg-transparent border-[1px] border-lightGray"} hover:border-mainRed flex flex-row items-center  font-medium rounded-md text-xl ${isNested ? "cursor-not-allowed border-0  text-white" : " pl-2 pr-2 py-2 space-x-2"}`}>
         {
             isNested ? (
                 <>
@@ -25,6 +28,8 @@ const CustomBtn:FC<CustomBtnProps> = ({image, isNested, bgColor,brdColor, conten
                 </>
             ) : (
                 <>
+                    <Image src={image} width={size} height={size} alt="btn-img" />
+                    <span>{content}</span>
                 </>
             )
         }

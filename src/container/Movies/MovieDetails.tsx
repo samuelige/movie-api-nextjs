@@ -13,12 +13,19 @@ import { fetchSingleMovieAction } from '@/api/movies.actions'
 import CustomLoader from '@/_shared/components/CustomLoader'
 import { MoviesDetailsResponse } from '@/types/movies'
 import lazyLoader from "@/_shared/assets/images/2.Illustrations/lazy_loader.gif?url"
+import like_icon from "@/_shared/assets/images/1.Icons/icon-heart-grey.svg?url"
+import liked_icon from "@/_shared/assets/images/1.Icons/icon-heart-full.svg?url"
 
 const MovieDetailsContianer:FC = () => {
     const params = useParams();
     const router = useRouter();
 
     const [retrieveData, setRetrieveData] = useState<MoviesDetailsResponse>();
+    const [liked, setLiked] = useState(false);
+
+    const toggleLike = () => {
+        setLiked((prevLiked) => !prevLiked);
+    };
 
     const { data: getMovieDetailData, isLoading: isLoading_SG_movie } = useQuery(['single_movie', params?.id],
         fetchSingleMovieAction,
@@ -50,7 +57,7 @@ const MovieDetailsContianer:FC = () => {
                                     <h1 className="text-[2.5rem] font-bold md:text-[5rem] text-white md:leading-[5.5rem]">{retrieveData?.Title}</h1>
                                 </div>
                                     
-                                <div className='flex flex-row space-x-4 empty:hidden'>
+                                <div className='flex flex-row flex-wrap gap-3 empty:hidden'>
                                     {
                                         retrieveData?.Ratings && retrieveData?.Ratings[0] && (
                                             <CustomBtn
@@ -76,6 +83,15 @@ const MovieDetailsContianer:FC = () => {
                                             />
                                         )
                                     }
+
+                                    <CustomBtn
+                                        image={!liked ? like_icon : liked_icon}
+                                        isActive={liked}
+                                        content={!liked ? 'Add to favourites' : "Added"}
+                                        size={26}
+                                        handleClick={toggleLike}
+                                        activeColor={"bg-mainRed text-white"}
+                                    />
                                     
                                 </div>
 
@@ -104,11 +120,7 @@ const MovieDetailsContianer:FC = () => {
                             <div className="w-full h-[20rem] rounded-[0.35738rem] md:h-[40rem] md:rounded-[0.62538rem] lg:w-[26rem] xl:w-[34.98219rem]">
                                 <div className='w-full h-full flex flex-row justify-end'>
                                     <Image className='rounded-lg w-full object-fill' src={retrieveData?.Poster === "N/A" ? lazyLoader : retrieveData?.Poster || lazyLoader} alt="Hero image" width={440} height={440}/>
-                                </div>
-                                {/* <div className='w-full flex flex-row justify-end'>
-                                    <Image className='rounded-lg' src={retrieveData?.Poster === "N/A" ? lazyLoader : retrieveData?.Poster || lazyLoader} alt="Hero image" width={440} height={440}/>
-                                </div> */}
-                                
+                                </div> 
                             </div>
                             
                         </div>
