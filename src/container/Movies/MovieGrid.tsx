@@ -16,6 +16,7 @@ const MovieGrid:FC<MovieGridProps> = ({data}) => {
             imageSrc={item.Poster}
             title={item.Title}
             year={item.Year}
+            movieID={item.imdbID}
           />
         ))
       }

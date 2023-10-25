@@ -6,7 +6,7 @@ module.exports = {
         mainYellow: "#FF9F1C",
         mainRed : "#FF4040",
         mainGreen: "#2EC4B6",
-        dark: "#OA1014",
+        dark: "#0A1014",
         gray: "#1B2329",
         midGray: "#353F4C",
         lightGray: "#7A8C99",
@@ -28,6 +28,15 @@ module.exports = {
     backgroundImage: {
         // grayOvelay: "rgba(255, 255, 255, 0.45)"
     },
-    borderColor: {},
+    borderColor: {
+        mainYellow: "#FF9F1C",
+        mainRed : "#FF4040",
+        mainGreen: "#2EC4B6",
+        dark: "#OA1014",
+        gray: "#1B2329",
+        midGray: "#353F4C",
+        lightGray: "#7A8C99",
+        white: "#FFF",
+    },
     
 }
