@@ -33,7 +33,7 @@ const MovieDetailsContianer:FC = () => {
 
   return (
     <div className="w-full px-7 lg:px-12 mt-4 bg-transparent xl-1:px-0 lg:pb-16 xl-1:pb-0">
-        <div className="w-full flex flex-col xl-1:max-w-[80rem] xl-1:m-auto">
+        <div className="w-full pb-8 lg:pb-0 flex flex-col xl-1:max-w-[80rem] xl-1:m-auto">
             {
                 isLoading_SG_movie ? (
                     <CustomLoader/>
@@ -43,14 +43,14 @@ const MovieDetailsContianer:FC = () => {
                             <Image src={left_arrow_icon} alt="left_arrow_icon" className='hover:brightness-0 hover:invert' width={32} height={32}/>
                         </button>
 
-                        <div className="mt-8 flex flex-col lg:flex-row lg:justify-between ">
+                        <div className="mt-8 flex flex-col-reverse lg:flex-row lg:justify-between ">
                             <div className="mt-11 lg:mt-0 lg:w-[28.375rem] xl:w-[34.375rem] xl-1:w-[37.375rem] space-y-12">
                                 <div className='space-y-6'>
-                                    <p className="text-lightGray space-x-1"><span>{retrieveData?.Runtime}</span> <span>&#x2022;</span> <span>{retrieveData?.Year}</span> <span>&#x2022;</span> <span className='text-dark bg-lightGray py-1 px-2 rounded-md' >R</span></p>
-                                    <h1 className="text-[1.375rem] font-bold md:text-[5rem] text-white leading-[5.5rem]">{retrieveData?.Title}</h1>
+                                    <p className="text-lightGray font-medium space-x-1"><span>{retrieveData?.Runtime}</span> <span>&#x2022;</span> <span>{retrieveData?.Year}</span> <span>&#x2022;</span> <span className='text-dark bg-lightGray py-1 px-2 rounded-md' >R</span></p>
+                                    <h1 className="text-[2.5rem] font-bold md:text-[5rem] text-white md:leading-[5.5rem]">{retrieveData?.Title}</h1>
                                 </div>
                                     
-                                <div className='flex flex-row space-x-4'>
+                                <div className='flex flex-row space-x-4 empty:hidden'>
                                     {
                                         retrieveData?.Ratings && retrieveData?.Ratings[0] && (
                                             <CustomBtn
@@ -84,7 +84,7 @@ const MovieDetailsContianer:FC = () => {
                                     <p className='text-white'>{retrieveData?.Plot}</p>
                                 </div>
 
-                                <div className='flex flex-col md:flex-row md:space-x-16 md:items-start'>
+                                <div className='flex flex-col space-y-8 md:space-y-0 md:flex-row md:space-x-16 md:items-start'>
                                     <TitleList
                                         title={"Cast"}
                                         data={toArray(retrieveData?.Actors || "")}
@@ -101,10 +101,13 @@ const MovieDetailsContianer:FC = () => {
 
                             </div>
 
-                            <div className="w-full h-[14.3125rem] rounded-[0.35738rem] md:h-[40] md:rounded-[0.62538rem] lg:w-[26rem] xl:w-[34.98219rem]">
-                                <div className='w-full flex flex-row justify-end'>
-                                    <Image className='rounded-lg' src={retrieveData?.Poster === "N/A" ? lazyLoader : retrieveData?.Poster || lazyLoader} alt="Hero image" width={440} height={440}/>
+                            <div className="w-full h-[20rem] rounded-[0.35738rem] md:h-[40rem] md:rounded-[0.62538rem] lg:w-[26rem] xl:w-[34.98219rem]">
+                                <div className='w-full h-full flex flex-row justify-end'>
+                                    <Image className='rounded-lg w-full object-fill' src={retrieveData?.Poster === "N/A" ? lazyLoader : retrieveData?.Poster || lazyLoader} alt="Hero image" width={440} height={440}/>
                                 </div>
+                                {/* <div className='w-full flex flex-row justify-end'>
+                                    <Image className='rounded-lg' src={retrieveData?.Poster === "N/A" ? lazyLoader : retrieveData?.Poster || lazyLoader} alt="Hero image" width={440} height={440}/>
+                                </div> */}
                                 
                             </div>
                             
