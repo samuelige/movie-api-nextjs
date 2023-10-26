@@ -1,9 +1,10 @@
-import Image from 'next/image'
 import React, { FC, useState } from 'react'
+import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 import like_icon from "@/_shared/assets/images/1.Icons/icon-heart-grey.svg?url"
 import liked_icon from "@/_shared/assets/images/1.Icons/icon-heart-full.svg?url"
 import lazyLoader from "@/_shared/assets/images/2.Illustrations/lazy_loader.gif?url"
-import { useRouter } from 'next/navigation'
+
 
 interface CustomMovieCardProps {
     imageSrc: string;

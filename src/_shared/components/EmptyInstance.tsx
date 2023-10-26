@@ -1,5 +1,5 @@
-import Image from 'next/image'
 import React from 'react'
+import Image from 'next/image'
 import emptyInstance_img from "@/_shared/assets/images/2.Illustrations/illustration-empty-state-removebg-preview.png?url"
 
 const EmptyInstance = () => {
